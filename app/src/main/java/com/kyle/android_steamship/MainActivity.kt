@@ -13,10 +13,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.friendsButton.setOnClickListener {
-            val intent = Intent(this, FriendSelectionActivity::class.java)
-            intent.putExtra("steamId", binding.steamIdEditText.text.toString())
-            startActivity(intent)
+
+        val sharedPref = getSharedPreferences("com.kyle.android_steamship.remember_data", MODE_PRIVATE)
+        val savedId = sharedPref.getString("steamId", null)
+
+        if (savedId != null) {
+            binding.steamIdEditText.setText(savedId)
+            goToFriendSelection(savedId)
         }
+
+        binding.friendsButton.setOnClickListener {
+            val newId = binding.steamIdEditText.text.toString()
+            with (sharedPref.edit()) {
+                putString("steamId", newId)
+                apply()
+            }
+            goToFriendSelection(newId)
+        }
+    }
+
+    fun goToFriendSelection(steamId: String){
+
+        val intent = Intent(this, FriendSelectionActivity::class.java)
+        intent.putExtra("steamId", steamId)
+        startActivity(intent)
     }
 }

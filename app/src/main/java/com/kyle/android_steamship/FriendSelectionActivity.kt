@@ -26,6 +26,7 @@ class FriendSelectionActivity : AppCompatActivity() {
             steamRepository
         )
     }
+
     private val adapter = FriendListAdapter(friendsList)
 
     override fun onCreate(savedInstanceState: Bundle?) {

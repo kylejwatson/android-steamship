@@ -18,14 +18,17 @@
 
         <TextView
             android:id="@+id/nameTextView"
+            style="@style/Widget.AppCompat.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/avatarImageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Personaname" />
 
         <TextView
             android:id="@+id/realNameTextView"
@@ -34,9 +37,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/avatarImageView"
-            app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+            tools:text="Real Name" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/avatarImageView"
@@ -47,11 +53,36 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="#00FFFFFF"
+            android:padding="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Image.PILL"
-            app:srcCompat="@drawable/circular"
+            app:strokeColor="@color/teal_200"
+            app:strokeWidth="3dp"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/statusImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/nameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nameTextView"
+            tools:srcCompat="@drawable/ic_ingame" />
+
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@+id/nameTextView"
+            app:layout_constraintEnd_toStartOf="@+id/statusImageView"
+            app:layout_constraintTop_toTopOf="@+id/nameTextView"
+            tools:text="Conan Exiles" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
